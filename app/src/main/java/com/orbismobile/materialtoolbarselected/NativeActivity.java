@@ -58,6 +58,14 @@ public class NativeActivity extends AppCompatActivity implements NativeAdapter.O
         if (actionMode == null) {
             actionMode = startSupportActionMode(actionModeCallback);
         }
+
+        int count = nativeAdapter.getSelectedItemCount();
+        if (count == 0) {
+            actionMode.finish();
+        } else {
+            actionMode.setTitle(String.valueOf(count));
+            actionMode.invalidate();
+        }
     }
 
     private class ActionModeCallback implements ActionMode.Callback {
@@ -89,6 +97,7 @@ public class NativeActivity extends AppCompatActivity implements NativeAdapter.O
 
         @Override
         public void onDestroyActionMode(ActionMode mode) {
+            nativeAdapter.clearAllSelections();
             actionMode = null;
         }
     }

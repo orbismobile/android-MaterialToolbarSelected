@@ -43,11 +43,13 @@ class NativeAdapter extends RecyclerView.Adapter<NativeAdapter.MainViewHolder> {
         if (userEntities.get(i).isSelected()) {
             mainViewHolder.llMessage.setBackgroundResource(R.color.md_grey_200);
             mainViewHolder.imgUnchecked.setBackgroundResource(R.drawable.layer_list_checked);
-
+            mainViewHolder.imgUnchecked.setImageResource(0);
+            mainViewHolder.imgChecked.setVisibility(View.VISIBLE);
         } else {
             mainViewHolder.llMessage.setBackgroundResource(0);
             mainViewHolder.imgUnchecked.setBackgroundResource(R.drawable.layer_list_unchecked);
-
+            mainViewHolder.imgUnchecked.setImageResource(R.drawable.ic_home_white_48dp);
+            mainViewHolder.imgChecked.setVisibility(View.INVISIBLE);
         }
 
         mainViewHolder.lblTitle.setText(userEntities.get(i).getName());
@@ -56,17 +58,6 @@ class NativeAdapter extends RecyclerView.Adapter<NativeAdapter.MainViewHolder> {
     @Override
     public int getItemCount() {
         return userEntities.size();
-    }
-
-    public int getItemSelected() {
-        int count = 0;
-        for (UserEntity userEntity : userEntities) {
-            if (userEntity.isSelected()) {
-                count++;
-            }
-        }
-
-        return count;
     }
 
     class MainViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -138,5 +129,22 @@ class NativeAdapter extends RecyclerView.Adapter<NativeAdapter.MainViewHolder> {
                 }
             });
         }
+    }
+
+    void clearAllSelections() {
+        for (UserEntity userEntity : userEntities) {
+            userEntity.setSelected(false);
+        }
+        notifyDataSetChanged();
+    }
+
+    int getSelectedItemCount() {
+        int count = 0;
+        for (UserEntity userEntity : userEntities) {
+            if (userEntity.isSelected()) {
+                count++;
+            }
+        }
+        return count;
     }
 }
