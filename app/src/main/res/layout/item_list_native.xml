@@ -2,39 +2,59 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center_vertical|start"
-    android:orientation="horizontal"
-    android:padding="16dp"
-    android:background="?attr/selectableItemBackground">
+    android:layout_height="56dp"
+    android:background="?attr/selectableItemBackground"
+    android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp">
-
-        <View
-            android:id="@+id/vCircle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/layer_list_unchecked" />
-
-        <ImageView
-            android:id="@+id/imgChecked"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_check_white_24dp"
-            android:contentDescription="@null" />
-
-    </FrameLayout>
-
-    <TextView
-        android:id="@+id/lblTitle"
+    <LinearLayout
+        android:id="@+id/llMessage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        tools:text="Hello, world" />
+        android:layout_height="55dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingEnd="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingStart="16dp">
+
+        <FrameLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp">
+
+            <ImageView
+                android:id="@+id/imgUnchecked"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/layer_list_unchecked"
+                android:contentDescription="@null"
+                android:padding="5dp"
+                android:src="@drawable/ic_home_white_48dp" />
+
+            <ImageView
+                android:id="@+id/imgChecked"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:padding="5dp"
+                android:src="@drawable/ic_check_white_24dp"
+                android:visibility="invisible" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/lblTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            tools:text="Hello, world" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/md_grey_300" />
 
 </LinearLayout>
