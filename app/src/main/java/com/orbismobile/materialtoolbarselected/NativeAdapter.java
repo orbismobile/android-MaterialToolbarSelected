@@ -14,7 +14,8 @@ import android.widget.TextView;
 import java.util.List;
 
 /**
- * @author Aidan Follestad (afollestad)
+ * @author Carlos Leonardo Camilo Vargas Huamán
+ * @alias CarlitosDroid
  */
 class NativeAdapter extends RecyclerView.Adapter<NativeAdapter.MainViewHolder> {
 
