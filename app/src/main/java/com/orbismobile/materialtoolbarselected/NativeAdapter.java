@@ -41,12 +41,12 @@ class NativeAdapter extends RecyclerView.Adapter<NativeAdapter.MainViewHolder> {
     @Override
     public void onBindViewHolder(MainViewHolder mainViewHolder, int i) {
         if (userEntities.get(i).isSelected()) {
-            mainViewHolder.llMessage.setBackgroundResource(R.color.md_grey_200);
+            mainViewHolder.llContainer.setBackgroundResource(R.color.md_grey_200);
             mainViewHolder.imgUnchecked.setBackgroundResource(R.drawable.layer_list_checked);
             mainViewHolder.imgUnchecked.setImageResource(0);
             mainViewHolder.imgChecked.setVisibility(View.VISIBLE);
         } else {
-            mainViewHolder.llMessage.setBackgroundResource(0);
+            mainViewHolder.llContainer.setBackgroundResource(R.color.md_white_1000);
             mainViewHolder.imgUnchecked.setBackgroundResource(R.drawable.layer_list_unchecked);
             mainViewHolder.imgUnchecked.setImageResource(R.drawable.ic_home_white_48dp);
             mainViewHolder.imgChecked.setVisibility(View.INVISIBLE);
@@ -62,6 +62,7 @@ class NativeAdapter extends RecyclerView.Adapter<NativeAdapter.MainViewHolder> {
 
     class MainViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+        final LinearLayout llContainer;
         final LinearLayout llMessage;
         final TextView lblTitle;
         final ImageView imgChecked;
@@ -69,6 +70,7 @@ class NativeAdapter extends RecyclerView.Adapter<NativeAdapter.MainViewHolder> {
 
         MainViewHolder(View itemView) {
             super(itemView);
+            llContainer = itemView.findViewById(R.id.llContainer);
             llMessage = itemView.findViewById(R.id.llMessage);
             lblTitle = itemView.findViewById(R.id.lblTitle);
             imgChecked = itemView.findViewById(R.id.imgChecked);
@@ -99,13 +101,13 @@ class NativeAdapter extends RecyclerView.Adapter<NativeAdapter.MainViewHolder> {
                 @Override
                 public void onAnimationEnd(Animator animator) {
                     if (userEntities.get(getAdapterPosition()).isSelected()) {
-                        llMessage.setBackgroundResource(0);
+                        llContainer.setBackgroundResource(R.color.md_white_1000);
                         userEntities.get(getAdapterPosition()).setSelected(false);
                         imgUnchecked.setBackgroundResource(R.drawable.layer_list_unchecked);
                         imgUnchecked.setImageResource(R.drawable.ic_home_white_48dp);
                         imgChecked.setVisibility(View.INVISIBLE);
                     } else {
-                        llMessage.setBackgroundResource(R.color.md_grey_200);
+                        llContainer.setBackgroundResource(R.color.md_grey_200);
                         userEntities.get(getAdapterPosition()).setSelected(true);
                         imgUnchecked.setBackgroundResource(R.drawable.layer_list_checked);
                         imgUnchecked.setImageResource(0);
