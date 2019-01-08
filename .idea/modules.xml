@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MaterialToolbarSelected.iml" filepath="$PROJECT_DIR$/MaterialToolbarSelected.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-MaterialToolbarSelected.iml" filepath="$PROJECT_DIR$/android-MaterialToolbarSelected.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
